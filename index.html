@@ -29,6 +29,45 @@ body {
   text-decoration: none;
   margin-left: 20px;
 }
+  /* Default (Desktop) */
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* 📱 Mobile */
+@media (max-width: 600px) {
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: #020617;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    padding: 20px;
+  }
+
+  .nav-links a {
+    margin: 10px 0;
+  }
+
+  /* When active */
+  .nav-links.active {
+    display: flex;
+  }
+}
 
 /* 🔹 Hero Section */
 .hero {
@@ -156,7 +195,12 @@ section {
 <!-- 🔹 Navbar -->
 <div class="navbar">
   <h2>Tharun Elamurugan</h2>
-  <div>
+  <div class="menu-toggle" onclick="toggleMenu()">
+    ☰
+  </div>
+
+  <!-- Links -->
+  <div class="nav-links" id="navLinks">
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
